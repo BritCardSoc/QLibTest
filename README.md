@@ -17,7 +17,8 @@ We'd like to thank the creators of the following third party libraries:
 
 DEPENDENCIES
 ------------
-QLibTest depends on 
+QLibTest depends on
+
 * [QRISK®-lifetime-2011](http://qrisk.org/lifetime/QRISK-lifetime-2011-opensource.v1.0.tgz) released by ClinRisk Ltd.
 * [QR-lifetime-flash](https://github.com/BritCardSoc/QR-lifetime-2011-flash)
 * [QR-lifetime-native](https://github.com/BritCardSoc/QR-lifetime-2011-native)
