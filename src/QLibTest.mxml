@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+This file forms part of the test suite for the JBS3Risk Risk Model.
+It is ©2012 University of Cambridge.
+It is released under version 3 of the GNU General Public License
+Source code, including a copy of the license is available at https://github.com/BritCardSoc/JBS3Risk
+
+It contains code derived from http://qrisk.org/lifetime/QRISK-lifetime-2011-opensource.v1.0.tgz released by ClinRisk Ltd.
+
+-->
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
+					   xmlns:s="library://ns.adobe.com/flex/spark" 
+					   xmlns:mx="library://ns.adobe.com/flex/mx" 
+					   xmlns:updater="http://updater.riaspace.com/"
+					   creationComplete="runMe()"
+					   applicationComplete="init()"
+					   viewSourceURL="srcview/index.html" xmlns:flexui="org.flexunit.flexui.*">
+
+	
+	<fx:Declarations>
+		<!-- 
+		
+		xmlns:adobe="http://www.adobe.com/2009/flexUnitUIRunner"
+
+		Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<fx:Script>
+		<![CDATA[
+			import air.update.events.UpdateEvent;
+			
+			import mx.controls.Alert;
+			
+			import org.flexunit.listeners.UIListener;
+			import org.flexunit.runner.FlexUnitCore;
+			import org.understandinguncertainty.QRISKLifetimeTestSuites.Suite;
+			
+			protected function updater_initializedHandler(event:UpdateEvent = null):void
+			{
+				updater.checkNow();
+			}
+			
+
+			private var core:FlexUnitCore;
+			public function runMe():void {
+				trace("creation Complete");
+								
+				//updater.initialize();
+			}
+			
+			private function init():void
+			{
+				trace("application Complete");
+				nativeWindow.x = (Capabilities.screenResolutionX - nativeWindow.width) / 2;
+				nativeWindow.y = (Capabilities.screenResolutionY - nativeWindow.height) / 2;
+
+				
+				core = new FlexUnitCore();
+				core.addListener(new UIListener(uiListener));
+				
+				// Test access to QRISK-lifetime-2011-opensource native C 
+				core.run(org.understandinguncertainty.QRISKLifetimeTestSuites.Suite);
+				
+			}
+			
+
+		]]>
+	</fx:Script>
+
+	<fx:Declarations>
+		<updater:NativeApplicationUpdater id="updater" 
+										  updateURL="http://understandinguncertainty/QTupdate.xml"
+										  initialized="updater_initializedHandler(event)"/>
+	</fx:Declarations>
+	
+	<s:Label text="You are updated to version: {updater.currentVersion}" 
+			 horizontalCenter="0" verticalCenter="0" />
+	
+	<flexui:UURunnerBase id="uiListener" width="100%" height="100%"  />
+	
+</s:WindowedApplication>
