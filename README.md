@@ -22,11 +22,11 @@ QLibTest depends on
 * [QRISK®-lifetime-2011](http://qrisk.org/lifetime/QRISK-lifetime-2011-opensource.v1.0.tgz) released by ClinRisk Ltd.
 * [QR-lifetime-flash](https://github.com/BritCardSoc/QR-lifetime-2011-flash)
 * [QR-lifetime-native](https://github.com/BritCardSoc/QR-lifetime-2011-native)
-* [flexunit](https://github.com/flexunit/flexunit/) AS3 unit test framework. A compiled 4.1 SDK version is included in the lib folder.
+* [flexunit](https://github.com/flexunit/flexunit/) AS3 unit test framework. Source is under the link, a compiled 4.1 SDK version is included in the lib folder. See also the [flexunit web site](http://www.flexunit.org).
  
 LANGUAGE
 --------
-This is a Flash Builder 4 web project written in actionscript 3 and mxml. 
+This is a Flash Builder 4 AIR project written in actionscript 3 and mxml. 
 To compile, download the distribution and create a new Flex Web Project using the distribution folder as
 the project folder. The sources may also be compiled and linked with the [free Adobe FLEX SDK](http://www.adobe.com/cfusion/entitlement/index.cfm?e=flex4sdk). 
 
